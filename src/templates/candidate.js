@@ -44,7 +44,7 @@ export const query = graphql`
       name
       slug
       mainImage {
-        fluid(maxWidth: 450, toFormat: WEBP) {
+        fluid(maxWidth: 600, toFormat: WEBP) {
           ...GatsbyContentfulFluid
         }
       }
