@@ -48,7 +48,6 @@ export const query = graphql`
             ...GatsbyContentfulFluid
           }
         }
-        date
         slug
       }
     }
