@@ -20,7 +20,7 @@ export default ({ data: { contentfulCandidate } }) => (
   <Layout>
     <article className="sheet">
       <SEO
-        title={contentfulCandidate.title}
+        title={contentfulCandidate.name}
         summary={contentfulCandidate.review.review}
         slug={contentfulCandidate.slug}
       />
