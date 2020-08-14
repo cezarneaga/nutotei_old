@@ -1,14 +1,11 @@
 const path = require('path')
 
 module.exports = {
-  siteTitle: `Cârtițele`,
+  siteTitle: `Nu tot ei!`,
   siteDescription:
     'Ceva descriere: cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam.',
   copyright: `©${new Date().getFullYear()} Valeriu Nicolae`,
-  siteTitleShort: 'HSSR',
-  siteUrl: 'http://localhost:8000',
-  pathPrefix: null,
-  logo: path.resolve(__dirname, 'src/assets/images/harta-icon.png'),
+  siteTitleShort: 'NTE',
   social: {
     twitter: 'https://twitter.com/valeriu',
     facebook: 'https://facebook.com/valeriu.nicolae.39',
