@@ -1,3 +1,10 @@
-# Cartitele
+# Nu tot ei
 
-inceput de site
+install deps
+
+`yarn`
+
+start dev mode
+
+`yarn start`
+
