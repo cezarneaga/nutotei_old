@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import { SEO } from '../components/SEO'
 const IndexPage = ({ data: { allContentfulCandidate } }) => {
-  console.log('IndexPage -> allContentfulCandidate', allContentfulCandidate)
   return (
     <Layout>
       <SEO />
