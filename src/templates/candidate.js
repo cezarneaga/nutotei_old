@@ -2,6 +2,7 @@ import React from 'react'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
+import { ExternalLink } from 'react-feather'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import { SEO } from '../components/SEO'
@@ -32,6 +33,18 @@ export default ({ data: { contentfulCandidate } }) => (
         </div>
         <div className="sheet__body">
           {documentToReactComponents(contentfulCandidate.content.json, options)}
+          {contentfulCandidate.documents.map((cv) => {
+            return (
+              <>
+                <ExternalLink
+                  size={14}
+                  color="#699acf"
+                  style={{ paddingRight: 5 }}
+                />
+                <a href={cv.file.url}>Vizualizează CV-ul</a>
+              </>
+            )
+          })}
         </div>
       </div>
     </article>
@@ -55,6 +68,11 @@ export const query = graphql`
         json
       }
       createdAt
+      documents {
+        file {
+          url
+        }
+      }
     }
   }
 `
