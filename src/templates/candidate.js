@@ -26,14 +26,17 @@ export default ({ data: { contentfulCandidate } }) => (
         slug={contentfulCandidate.slug}
       />
       <div className="sheet__inner">
-        <h1 className="sheet__title">{contentfulCandidate.name}</h1>
+        <h1 className="sheet__title">
+          {contentfulCandidate.name}
+          {contentfulCandidate.party ? ` - ${contentfulCandidate.party}` : ''}
+        </h1>
         <p className="sheet__lead">{contentfulCandidate.review.review}</p>
         <div className="sheet__gallery">
           <Img fluid={contentfulCandidate.mainImage.fluid} />
         </div>
         <div className="sheet__body">
           {documentToReactComponents(contentfulCandidate.content.json, options)}
-          {contentfulCandidate.documents.map((cv) => {
+          {contentfulCandidate?.documents?.map((cv) => {
             return (
               <>
                 <ExternalLink
@@ -67,6 +70,7 @@ export const query = graphql`
       content {
         json
       }
+      party
       createdAt
       documents {
         file {
