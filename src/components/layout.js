@@ -20,7 +20,7 @@ const TemplateWrapper = ({ children }) => {
               copyright
               social {
                 facebook
-                twitter
+                email
               }
             }
           }
