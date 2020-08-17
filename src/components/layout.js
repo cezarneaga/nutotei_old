@@ -52,8 +52,7 @@ const TemplateWrapper = ({ children }) => {
                   {' '}
                 </a>
                 <a
-                  href={data.site.siteMetadata.social.email}
-                  target="blank"
+                  href={`mailto:${data.site.siteMetadata.social.email}`}
                   className={`social social--email`}>
                   {' '}
                 </a>
