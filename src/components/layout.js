@@ -52,9 +52,9 @@ const TemplateWrapper = ({ children }) => {
                   {' '}
                 </a>
                 <a
-                  href={data.site.siteMetadata.social.twitter}
+                  href={data.site.siteMetadata.social.email}
                   target="blank"
-                  className={`social social--twitter`}>
+                  className={`social social--email`}>
                   {' '}
                 </a>
               </p>
