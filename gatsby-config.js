@@ -1,4 +1,5 @@
 require('dotenv').config()
+const queries = require('./src/utils/algolia.js')
 const siteConfig = require('./site-config')
 module.exports = {
   siteMetadata: {
@@ -43,6 +44,21 @@ module.exports = {
         // sampleRate: 5,
         // siteSpeedSampleRate: 10,
         // cookieDomain: 'example.com',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME_COMMON, // for all queries
+        queries,
+        chunkSize: 10000,
+        settings: {
+          // optional, any index settings
+        },
+        enablePartialUpdates: true,
+        matchFields: ['updatedAt'],
       },
     },
   ],

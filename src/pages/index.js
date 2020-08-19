@@ -4,10 +4,12 @@ import Masonry from 'react-masonry-component'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import { SEO } from '../components/SEO'
+import { AutocompleteSearch } from '../components/AutocompleteSearch'
 const IndexPage = ({ data: { allContentfulCandidate } }) => {
   return (
     <Layout>
       <SEO />
+      <AutocompleteSearch />
       <Masonry className="showcase">
         {allContentfulCandidate.nodes.map((work) => (
           <div key={work.id} className="showcase__item">
