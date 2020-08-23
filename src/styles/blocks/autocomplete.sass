@@ -1,0 +1,77 @@
+.autocomplete-search
+	position: relative
+	height: 2em
+	width: calc(100% - 30px)
+	margin: 15px
+	z-index: 88
+	max-width: 400px
+		
+	.react-autosuggest__input
+		position: relative
+		width: calc(100% - 100px - 4px)
+		max-width: 400px
+		height: 2em
+		border: 2px solid #dadada
+		border-radius: .3em
+		background: #fff
+		font-size: 1em
+		color: #999
+		padding-left: 34px
+		padding-right: 66px
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+
+	&:before
+		content: ''
+		background: url('../../images/search.svg')
+		color: #dadada
+		position: absolute
+		background-repeat: no-repeat
+		bottom: 4px
+		left: 8px
+		z-index: 9
+		background-size: 18px 18px
+		height: 18px
+		width: 18px
+
+	.ais-PoweredBy
+		width: 60px
+		filter: grayscale(100%) invert(62%) sepia(0%) saturate(270%) hue-rotate(314deg) brightness(85%) contrast(80%)
+		position: absolute
+		top: -3px
+		right: 8px
+		height: 40px
+		.ais-PoweredBy-text
+			font-size: 10px
+
+		.ais-PoweredBy-link
+			svg
+				width: 58px
+				margin-top: -10px
+
+		&.active
+			filter: initial
+	.react-autosuggest__suggestions-container--open
+		width: 100%
+		background-color: white
+		position: absolute
+		top: 40px
+		border: 1px solid
+		border-color: #dadada
+		border-radius: 4px
+
+		li
+			padding: 10px 10px 5px
+			border-bottom: 1px solid
+			border-color: #dadada
+
+			.hit-name
+				font-size: 20px
+
+			.hit-party
+				font-weight: bold
+				font-size: 14px
+
+			.ais-Highlight-highlighted
+				background-color: #9ddff3

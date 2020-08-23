@@ -33,14 +33,13 @@ class Autocomplete extends Component {
     return (
       <>
         <Highlight attribute="name" hit={hit} className="hit-name" />
+        <br />
 
-        <span className="hit-party">
-          Partid: <Highlight attribute="party" hit={hit} /> <br />
-        </span>
-
-        <span className="hit-summary">
-          <Highlight attribute="summary.summary" hit={hit} />
-        </span>
+        {hit.party && (
+          <span className="hit-party">
+            <Highlight attribute="party" hit={hit} />
+          </span>
+        )}
       </>
     )
   }
@@ -60,7 +59,7 @@ class Autocomplete extends Component {
       value: this.state.value,
     }
     return (
-      <>
+      <div className="autocomplete-search">
         <AutoSuggest
           suggestions={hits}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -74,10 +73,10 @@ class Autocomplete extends Component {
           className={this.state.active ? 'active' : ''}
           // Optional parameters
           translations={{
-            searchBy: 'Search by',
+            searchBy: 'search by',
           }}
         />
-      </>
+      </div>
     )
   }
 }

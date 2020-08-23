@@ -16,16 +16,6 @@ const common = `query {
   }
 }`
 
-const addType = (data, type) =>
-  data.map((a) => {
-    return { ...a, type }
-  })
-const prepareData = (data) => [
-  ...addType(data.blogs, 'Noutăți'),
-  ...addType(data.pages, 'Pagini'),
-  ...addType(data.providers, 'Servicii'),
-]
-
 const queries = [
   {
     query: common,
