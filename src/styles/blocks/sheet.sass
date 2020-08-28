@@ -4,6 +4,8 @@
 
 .sheet__inner
   max-width: 600px
+.sheet__inner_wide
+  max-width: 900px
 
 .sheet__title
   font-size: 30px
@@ -46,14 +48,14 @@
     font-size: 1.5em
 
   li
-    margin-left: 20px
+    margin-left: 0px
     margin-bottom: 5px
 
   ol li
     list-style-type: decimal
 
   ul li
-    list-style-type: disc
+    list-style-type: none
 
   blockquote
     border-left: 4px solid $active-color
@@ -70,6 +72,11 @@
     &:hover
       background-color: #699acf
       color: white
+    &.button
+      &:hover
+        background-color: transparent
+        color: #447ebd
+        
 
 @media screen and (min-width: 900px)
   .sheet

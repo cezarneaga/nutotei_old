@@ -39,6 +39,8 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
   },
   "devDependencies": {
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "stylelint": "^13.6.1",
+    "stylelint-prettier": "^1.1.2"
   }
 }
