@@ -3,7 +3,7 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import { ExternalLink } from 'react-feather'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import { SEO } from '../components/SEO'
 const Bold = ({ children }) => <strong>{children}</strong>
@@ -17,7 +17,7 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
   },
 }
-export default ({ data: { contentfulCandidate } }) => (
+export default ({ data: { contentfulCandidate, allContentfulCandidate } }) => (
   <Layout>
     <article className="sheet">
       <SEO
@@ -48,6 +48,21 @@ export default ({ data: { contentfulCandidate } }) => (
               </>
             )
           })}
+          <hr className="separator" />
+          <ul className="others" style={{ overflow: 'hidden', marginRight: 0 }}>
+            {allContentfulCandidate.nodes.map((other) => (
+              <li key={other.id} className="card">
+                <Link to={`/candidat/${other.slug}`} className="card__image">
+                  <Img fluid={other.mainImage.fluid} />
+                </Link>
+                <div className="card__caption">
+                  <h6 className="card__title">
+                    <Link to={`/candidat/${other.slug}`}>{other.name}</Link>
+                  </h6>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </article>
@@ -75,6 +90,19 @@ export const query = graphql`
       documents {
         file {
           url
+        }
+      }
+    }
+    allContentfulCandidate(limit: 3, skip: 1) {
+      nodes {
+        id
+        name
+        slug
+        party
+        mainImage {
+          fluid(maxWidth: 400, maxHeight: 280, toFormat: WEBP) {
+            ...GatsbyContentfulFluid
+          }
         }
       }
     }
