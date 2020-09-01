@@ -9,6 +9,7 @@ import {
   RefinementList,
   SearchBox,
   Panel,
+  Stats,
   Highlight,
   PoweredBy,
 } from 'react-instantsearch-dom'
@@ -36,6 +37,13 @@ export function InstaSearch(props) {
           <PoweredBy
             translations={{
               searchBy: 'search by',
+            }}
+          />
+          <Stats
+            translations={{
+              stats(nbHits, timeSpentMS) {
+                return `${nbHits} rezultate găsite în ${timeSpentMS}ms`
+              },
             }}
           />
         </div>
