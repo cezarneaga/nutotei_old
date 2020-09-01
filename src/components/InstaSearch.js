@@ -61,7 +61,7 @@ export function InstaSearch(props) {
 function Hit({ hit }) {
   return (
     <div className={`card-candidate`}>
-      <Link to={`candidat/${hit.slug}`}>
+      <Link to={`/candidat/${hit.slug}`}>
         <Highlight attribute="name" hit={hit} className="hit-name" />
         {hit.party && (
           <span className="hit-party">
@@ -75,7 +75,7 @@ function Hit({ hit }) {
         <Highlight attribute="review.review" hit={hit} />
       </span>
       <Link
-        to={`candidat/${hit.slug}`}
+        to={`/candidat/${hit.slug}`}
         className="button"
         style={{ float: 'right', display: 'inline-block', marginRight: 10 }}>
         <ArrowRightCircle />
