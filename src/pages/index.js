@@ -30,7 +30,7 @@ const IndexPage = ({ data: { allContentfulCandidate, allImageSharp } }) => {
                       let fileName = el.fixed.originalName
                       fileName = fileName.substring(5, fileName.indexOf('.'))
 
-                      console.log('Filename: ' + fileName + ' ')
+                      console.log(work.party)
                       if (fileName === work.party)
                         return <Img fixed={el.fixed} className="" />
                     })}
