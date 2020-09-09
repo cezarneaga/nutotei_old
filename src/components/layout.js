@@ -18,6 +18,7 @@ const TemplateWrapper = ({ children }) => {
               siteTitle
               siteDescription
               copyright
+              donate
               social {
                 facebook
                 email
@@ -34,7 +35,12 @@ const TemplateWrapper = ({ children }) => {
                 <Link to="/">{data.site.siteMetadata.siteTitle}</Link>
               </h6>
               <div className="sidebar__intro">
-                {data.site.siteMetadata.siteDescription}
+                <p style={{ paddingBottom: '20px' }}>
+                  {data.site.siteMetadata.siteDescription}
+                </p>
+                {data.site.siteMetadata.donate.split('\n').map(line => (
+                  <p style={{ margin: 0 }}>{line}</p>
+                ))}
               </div>
               <ul className="sidebar__menu">
                 <li>
