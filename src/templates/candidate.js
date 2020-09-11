@@ -11,7 +11,7 @@ const Text = ({ children }) => <p>{children}</p>
 
 const options = {
   renderMark: {
-    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
@@ -36,7 +36,7 @@ export default ({ data: { contentfulCandidate, allContentfulCandidate } }) => (
         </div>
         <div className="sheet__body">
           {documentToReactComponents(contentfulCandidate.content.json, options)}
-          {contentfulCandidate?.documents?.map((cv) => {
+          {contentfulCandidate?.documents?.map(cv => {
             return (
               <>
                 <ExternalLink
@@ -50,7 +50,7 @@ export default ({ data: { contentfulCandidate, allContentfulCandidate } }) => (
           })}
           <hr className="separator" />
           <ul className="others" style={{ overflow: 'hidden', marginRight: 0 }}>
-            {allContentfulCandidate.nodes.map((other) => (
+            {allContentfulCandidate.nodes.map(other => (
               <li key={other.id} className="card">
                 <Link to={`/candidat/${other.slug}`} className="card__image">
                   <Img fluid={other.mainImage.fluid} />
