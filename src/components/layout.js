@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid*/
 
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 
@@ -26,7 +25,7 @@ const TemplateWrapper = ({ children }) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <div className={`container ${showMenu ? 'is-open' : ''}`}>
           <div className="container__sidebar">
             <div className="sidebar">
@@ -51,14 +50,12 @@ const TemplateWrapper = ({ children }) => {
                 <a
                   href={data.site.siteMetadata.social.facebook}
                   target="blank"
-                  className={`social social--facebook`}
-                >
+                  className={`social social--facebook`}>
                   {' '}
                 </a>
                 <a
                   href={`mailto:${data.site.siteMetadata.social.email}`}
-                  className={`social social--email`}
-                >
+                  className={`social social--email`}>
                   {' '}
                 </a>
               </p>
@@ -72,11 +69,10 @@ const TemplateWrapper = ({ children }) => {
               <div className="mobile-header">
                 <div className="mobile-header__menu">
                   <button
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault()
                       setShowMenu(!showMenu)
-                    }}
-                  >
+                    }}>
                     <span style={{ display: 'none' }}>menu</span>
                   </button>
                 </div>
@@ -92,10 +88,5 @@ const TemplateWrapper = ({ children }) => {
     />
   )
 }
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.object,
-}
-
 export default TemplateWrapper
 /* eslint-enable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid*/
