@@ -20,7 +20,7 @@ const IndexPage = ({ data: { allContentfulCandidate } }) => {
       <SEO />
       <AutocompleteSearch />
       <Masonry className="showcase">
-        {allContentfulCandidate.nodes.map(work => {
+        {allContentfulCandidate.nodes.map((work) => {
           return (
             <div key={work.id} className="showcase__item">
               <figure className="card">
