@@ -17,6 +17,19 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
   },
 }
+
+const CandidateMedia = ({ MediaUrl, MediaText }) => {
+  return (
+    <>
+      <ExternalLink size={14} color="#699acf" style={{ paddingRight: 5 }} />
+      <a href={MediaUrl} target="_blank" rel="noreferrer">
+        {MediaText}
+      </a>
+      <br />
+    </>
+  )
+}
+
 export default ({ data: { contentfulCandidate, allContentfulCandidate } }) => (
   <Layout>
     <article className="sheet">
@@ -38,16 +51,18 @@ export default ({ data: { contentfulCandidate, allContentfulCandidate } }) => (
           {documentToReactComponents(contentfulCandidate.content.json, options)}
           {contentfulCandidate?.documents?.map(cv => {
             return (
-              <>
-                <ExternalLink
-                  size={14}
-                  color="#699acf"
-                  style={{ paddingRight: 5 }}
-                />
-                <a href={cv.file.url}>Vizualizează CV-ul</a>
-              </>
+              <CandidateMedia
+                MediaUrl={cv.file.url}
+                MediaText="Vizualizează CV-ul"
+              />
             )
           })}
+          {contentfulCandidate.facebookLink && (
+            <CandidateMedia
+              MediaUrl={contentfulCandidate.facebookLink}
+              MediaText="Sursă articol"
+            />
+          )}
           <hr className="separator" />
           <ul className="others" style={{ overflow: 'hidden', marginRight: 0 }}>
             {allContentfulCandidate.nodes.map(other => (
@@ -74,6 +89,7 @@ export const query = graphql`
     contentfulCandidate(slug: { eq: $slug }) {
       name
       slug
+      facebookLink
       mainImage {
         fluid(maxWidth: 600, toFormat: WEBP) {
           ...GatsbyContentfulFluid

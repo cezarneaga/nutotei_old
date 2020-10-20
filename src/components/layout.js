@@ -26,7 +26,7 @@ const TemplateWrapper = ({ children }) => {
           }
         }
       `}
-      render={(data) => (
+      render={data => (
         <div className={`container ${showMenu ? 'is-open' : ''}`}>
           <div className="container__sidebar">
             <div className="sidebar">
@@ -38,7 +38,7 @@ const TemplateWrapper = ({ children }) => {
                   {data.site.siteMetadata.siteDescription}
                 </p>
                 {data.site.siteMetadata.donate.split('\n').map(line => (
-                  <p style={{ margin: 0 }}>{line}</p>
+                  <p style={{ margin: 0, overflowWrap: "break-word" }}>{line}</p>
                 ))}
               </div>
               <ul className="sidebar__menu">
@@ -56,12 +56,14 @@ const TemplateWrapper = ({ children }) => {
                 <a
                   href={data.site.siteMetadata.social.facebook}
                   target="blank"
-                  className={`social social--facebook`}>
+                  className={`social social--facebook`}
+                >
                   {' '}
                 </a>
                 <a
                   href={`mailto:${data.site.siteMetadata.social.email}`}
-                  className={`social social--email`}>
+                  className={`social social--email`}
+                >
                   {' '}
                 </a>
               </p>
@@ -75,10 +77,11 @@ const TemplateWrapper = ({ children }) => {
               <div className="mobile-header">
                 <div className="mobile-header__menu">
                   <button
-                    onClick={(e) => {
+                    onClick={e => {
                       e.preventDefault()
                       setShowMenu(!showMenu)
-                    }}>
+                    }}
+                  >
                     <span style={{ display: 'none' }}>menu</span>
                   </button>
                 </div>
